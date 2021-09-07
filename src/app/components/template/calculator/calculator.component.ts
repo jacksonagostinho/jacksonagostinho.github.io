@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CalculatorLogic } from './calculator-logic';
 
 @Component({
   selector: 'app-calculator',
@@ -7,13 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CalculatorComponent implements OnInit {
 
+  private _calculatorLogical: CalculatorLogic = new CalculatorLogic();
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  onClick(value: string) {
-    console.log("CalculatorComponent -> "+value);
+  clickOnButton(value: string) {
+    this._calculatorLogical.input(value);
+  }
+
+  getDisplayValue(): string {
+    return this._calculatorLogical.display();
   }
 
 }

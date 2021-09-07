@@ -1,29 +1,29 @@
 <div class="calculator">
 
-    <app-display value=''></app-display>
+    <app-display [value]="getDisplayValue()"></app-display>
     
     <div class="calculator-buttons">
-        <button class="button command large-width-button" (click)="onClick('CE')">CE</button>
-        <button class="button operation" (click)="onClick('%')">%</button>
-        <button class="button operation" (click)="onClick('/')">/</button>  
+        <button class="button command large-width-button" (click)="clickOnButton('CE')">CE</button>
+        <button class="button operation" (click)="clickOnButton('%')">%</button>
+        <button class="button operation" (click)="clickOnButton('/')">&divide;</button>  
 
-        <button class="button" (click)="onClick('7')">7</button>
-        <button class="button" (click)="onClick('8')">8</button>
-        <button class="button" (click)="onClick('9')">9</button>
-        <button class="button operation" (click)="onClick('*')">*</button>
+        <button class="button" (click)="clickOnButton('7')">7</button>
+        <button class="button" (click)="clickOnButton('8')">8</button>
+        <button class="button" (click)="clickOnButton('9')">9</button>
+        <button class="button operation" (click)="clickOnButton('*')">*</button>
         
-        <button class="button" (click)="onClick('4')">4</button>
-        <button class="button" (click)="onClick('5')">5</button>
-        <button class="button" (click)="onClick('6')">6</button>
-        <button class="button operation" (click)="onClick('-')">-</button>
+        <button class="button" (click)="clickOnButton('4')">4</button>
+        <button class="button" (click)="clickOnButton('5')">5</button>
+        <button class="button" (click)="clickOnButton('6')">6</button>
+        <button class="button operation" (click)="clickOnButton('-')">-</button>
 
-        <button class="button" (click)="onClick('1')">1</button>
-        <button class="button" (click)="onClick('2')">2</button>
-        <button class="button" (click)="onClick('3')">3</button>
-        <button class="button operation large-height-button" (click)="onClick('+')">+</button>
+        <button class="button" (click)="clickOnButton('1')">1</button>
+        <button class="button" (click)="clickOnButton('2')">2</button>
+        <button class="button" (click)="clickOnButton('3')">3</button>
+        <button class="button operation large-height-button" (click)="clickOnButton('+')">+</button>
         
-        <button class="button" (click)="onClick('0')">0</button>
-        <button class="button" (click)="onClick('.')">.</button>
-        <button class="button command" (click)="onClick('=')">=</button>
+        <button class="button" (click)="clickOnButton('0')">0</button>
+        <button class="button" (click)="clickOnButton('.')">.</button>
+        <button class="button command" (click)="clickOnButton('=')">=</button>
     </div>
 </div>
