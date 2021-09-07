@@ -1,0 +1,11 @@
+.center {
+    margin: auto;
+    margin-top: 20px;
+    width: 80%;
+    min-height: 1.6em;
+    border: 2px solid rgba(17, 17, 17, 0.534);
+    border-radius: 5px;
+    padding: 10px;
+    text-align: right;
+    font-size: 1.6em;
+}
