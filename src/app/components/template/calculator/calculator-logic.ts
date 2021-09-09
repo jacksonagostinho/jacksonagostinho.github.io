@@ -15,12 +15,11 @@ export class CalculatorLogic {
     }
 
     if ('CE' === value) {
-        console.log('CE -> Clean');
         this.clean();
         return;
     }
 
-    if(this._currentOperation === '' || (this._currentOperation === '-' && this._value1 === '')) {
+    if(('=' !== value) && (this._currentOperation === '' || (this._currentOperation === '-' && this._value1 === ''))) {
         if (value !== '.' || this._value1.includes('.') === false) {
             this._value1 += value;
         }
@@ -33,11 +32,18 @@ export class CalculatorLogic {
         }
     }
 
-    if ('=' === value || '%' === value || (this._value1 !== '' && this._value2 !== '' && this._operations.includes(value))) {
-        console.log('= -> toCalculate');
+    if (('=' === value && this._value2 !== '') || ('%' === value && this._value1 !== '')) {
         try {
-            let result: number = this.toCalculate();
-            this._value1 = String(result);
+            let value1: number = parseFloat(this._value1);
+            let value2: number = parseFloat(this._value2);
+                        
+            let result: number = this.toCalculate(value1, value2, this._currentOperation);
+
+            if(!isNaN(result)) {
+                this._value1 = String(result);
+            } else {
+                this._value1 = '';
+            }
             this._value2 = '';            
         }
         catch(e) {
@@ -57,7 +63,6 @@ export class CalculatorLogic {
   }
 
   display(): string {
-
     if (this._msgError !== '') {
         return this._msgError;
     } 
@@ -67,20 +72,13 @@ export class CalculatorLogic {
     } else if (this._value1 !== '') {
         return this._value1
     }
+
     return '0';
   }
 
 
-
-  toCalculate(): number {
-    
-    let value1: number = parseFloat(this._value1);
-    let value2: number = parseFloat(this._value2);
-
-    console.log(value1);
-    console.log(value2);
-    
-    switch(this._currentOperation) { 
+  toCalculate(value1: number, value2: number, currentOperation: string): number {
+    switch(currentOperation) { 
         case "+": {
             if (!isNaN(value2)) {
                 value1 += value2;
@@ -123,4 +121,3 @@ export class CalculatorLogic {
   }
 
 }
-
