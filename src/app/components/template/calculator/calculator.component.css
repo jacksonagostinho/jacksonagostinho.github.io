@@ -1,5 +1,6 @@
 .calculator {
-    max-width: 300px;
+    max-width: 550px;
+    min-width: 240px;
     margin: auto;
     border: 2px solid rgba(17, 17, 17, 0.534);
     border-radius: 5px;
@@ -9,26 +10,27 @@
     background-color: #04AA6D;
     border: none;
     color: white;
-    padding: 10px;
+    padding: 0.5em;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 1.6em;
-    margin: 4px;
+    margin: 4%;
     cursor: pointer;
     border-radius: 8px;
 }
 
 .operation {
-    background-color: #ad9e12; 
+    background-color: #c9bb3b; 
 }
 
 .command {
-    background-color: #e76464;
+    background-color: #e28383;
 }
 
 .calculator-buttons {
-    padding: 20px;
+    margin: auto;
+    padding: 1em;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 0.05em;
